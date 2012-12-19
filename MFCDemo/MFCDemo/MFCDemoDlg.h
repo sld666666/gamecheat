@@ -1,0 +1,40 @@
+
+// MFCDemoDlg.h : 头文件
+//
+
+#pragma once
+#include "ProcessMsgManager.h"
+
+
+// CMFCDemoDlg 对话框
+class CMFCDemoDlg : public CDialog
+{
+// 构造
+public:
+	CMFCDemoDlg(CWnd* pParent = NULL);	// 标准构造函数
+
+// 对话框数据
+	enum { IDD = IDD_MFCDEMO_DIALOG };
+
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
+
+
+// 实现
+protected:
+	HICON m_hIcon;
+
+	// 生成的消息映射函数
+	virtual BOOL OnInitDialog();
+	afx_msg void OnPaint();
+	afx_msg HCURSOR OnQueryDragIcon();
+	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedTest();
+	afx_msg void OnBnClickedInhook();
+private:
+	 shared_ptr<ProcessMsgManager> processMsgManager_;
+
+public:
+	afx_msg void OnBnClickedUnhook();
+};

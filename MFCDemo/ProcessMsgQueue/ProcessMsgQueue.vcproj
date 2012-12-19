@@ -3,9 +3,9 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="ProcessMsgQueue"
-	ProjectGUID="{AB085B54-15EF-476B-AD5C-97325900380E}"
+	ProjectGUID="{3A115335-A49B-4F65-B55A-60DAA1FD799B}"
 	RootNamespace="ProcessMsgQueue"
-	Keyword="Win32Proj"
+	Keyword="MFCDLLProj"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -21,6 +21,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
+			UseOfMFC="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -37,12 +38,14 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="false"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../include/;../utils/"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;PROCESSMSGQUEUE_EXPORTS"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_AFXEXT"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -55,6 +58,9 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="2052"
+				AdditionalIncludeDirectories="$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -64,6 +70,7 @@
 				AdditionalDependencies="log4cplusUD.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../libs/"
+				ModuleDefinitionFile=".\ProcessMsgQueue.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -95,6 +102,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
+			UseOfMFC="2"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -112,12 +120,14 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="false"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;PROCESSMSGQUEUE_EXPORTS"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG;_AFXEXT"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
@@ -129,6 +139,9 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="2052"
+				AdditionalIncludeDirectories="$(IntDir)"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -136,6 +149,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="1"
+				ModuleDefinitionFile=".\ProcessMsgQueue.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -204,7 +218,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcessMsgManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcessMsgQueue.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcessMsgQueue.def"
 				>
 			</File>
 			<File
@@ -246,6 +268,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcessMsgManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Resource.h"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.h"
 				>
 			</File>
@@ -259,6 +289,14 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\ProcessMsgQueue.rc"
+				>
+			</File>
+			<File
+				RelativePath=".\res\ProcessMsgQueue.rc2"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

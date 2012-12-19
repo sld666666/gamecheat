@@ -1,17 +1,19 @@
 #include "StdAfx.h"
-
-//#define BOOST_ALL_NO_LIB
+#define BOOST_ALL_NO_LIB
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
 
 #include "MsgListener.h"
 #include "log.h"
 
-//#pragma comment(lib, "boost_thread-vc90-mt-1_43.lib")
 
-MsgListener::MsgListener(void)
-: msgQueue_(interprocess::open_only, INTERPRCESS_MESSAGE_QUEUE_NAME)
+#pragma comment(lib, "boost_thread-vc90-mt-1_43.lib")
+
+MsgListener::MsgListener(const string& queueName)
+: msgQueue_(interprocess::open_or_create
+			, queueName.c_str(), 1, sizeof(int))
 {
+	Log::instance().debugMsg("MsgListener");
 }
 
 MsgListener::~MsgListener(void)
@@ -20,6 +22,7 @@ MsgListener::~MsgListener(void)
 
 void MsgListener::start()
 {
+	Log::instance().debugMsg("MsgListener start");
 	boost::thread lisntenThread(bind(&MsgListener::onLisnten, this));
 
 }

@@ -2,12 +2,13 @@
 #pragma once
 #include "interprocessConstant.h"
 
-class _declspec(dllexport) MsgSender
+class	MsgSender
 {
 public:
-	MsgSender(void);
+	MsgSender(const string& queueName);
 	~MsgSender(void);
 
+public:
 	void	sendMessageQueue();
 	
 private:

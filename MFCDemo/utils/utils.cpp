@@ -1,11 +1,10 @@
-// utils.cpp : 定义 DLL 应用程序的导出函数。
+// utils.cpp : 定义 DLL 的初始化例程。
 //
 
 #include "stdafx.h"
-#include "utils.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#endif
 
 
-void test(){
-
-	int i(0);
-}

@@ -1,5 +1,13 @@
+/** 
+* @file         XmlConfig.h 
+* @Synopsis       
+* @author         diwu.sld
+* @version      1.0
+* @date         2012-12-19
+*/
 #pragma once
 #include "isingleton.h"
+#include "commonInclude.h"
 
 #include <string>
 #include <boost/property_tree/ptree.hpp>
@@ -11,9 +19,10 @@ using namespace std;
 using namespace boost::property_tree;
 using boost::property_tree::ptree;
 
+
 #define foreach BOOST_FOREACH
 
-class XmlConfig : public ISingleton<XmlConfig>
+class AFX_EXT_CLASS XmlConfig : public ISingleton<XmlConfig>
 {
 public:
 	~XmlConfig();

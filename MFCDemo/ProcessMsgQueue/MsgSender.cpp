@@ -2,15 +2,15 @@
 #include "MsgSender.h"
 
 
-MsgSender::MsgSender(void)
+MsgSender::MsgSender(const string& queueName)
 : msgQueue_(interprocess::open_or_create
-			, INTERPRCESS_MESSAGE_QUEUE_NAME, 1, sizeof(int))
+			, queueName.c_str(), 1, sizeof(int))
 {
 }
 
 MsgSender::~MsgSender(void)
 {
-	interprocess::message_queue::remove(INTERPRCESS_MESSAGE_QUEUE_NAME);
+	//interprocess::message_queue::remove(INTERPRCESS_MESSAGE_QUEUE_NAME);
 
 }
 
@@ -19,3 +19,5 @@ void MsgSender::sendMessageQueue()
 	int i (1);
 	msgQueue_.send(&i, sizeof(i), 0);
 }
+
+

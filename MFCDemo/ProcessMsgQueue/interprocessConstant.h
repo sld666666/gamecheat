@@ -15,7 +15,8 @@
 using namespace boost;
 using namespace std;
 
-static const char * INTERPRCESS_MESSAGE_QUEUE_NAME		= "huapi2_message_queue";
+static const string  INTERPRCESS_MESSAGE_QUEUE_NAME_IN		= "huapi2_message_queue_in";
+static const string	INTERPRCESS_MESSAGE_QUEUE_NAME_OUT		= "huapi2_message_queue_out";
 
 enum MSG_QUEUE_TYPE
 {

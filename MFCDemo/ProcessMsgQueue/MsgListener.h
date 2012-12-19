@@ -8,10 +8,10 @@
 #pragma once
 #include "interprocessConstant.h"
 
-class _declspec(dllexport) MsgListener
+class	MsgListener
 {
 public:
-	MsgListener(void);
+	MsgListener(const string& queueName);
 	~MsgListener(void);
 
 	void		start();
