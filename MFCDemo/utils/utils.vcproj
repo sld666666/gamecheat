@@ -209,6 +209,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\log.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -244,6 +248,10 @@
 				RelativePath=".\XmlConfig.cpp"
 				>
 			</File>
+			<Filter
+				Name="serialization"
+				>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="头文件"
@@ -256,10 +264,6 @@
 			</File>
 			<File
 				RelativePath=".\isingleton.h"
-				>
-			</File>
-			<File
-				RelativePath=".\log.cpp"
 				>
 			</File>
 			<File
@@ -286,6 +290,14 @@
 				RelativePath=".\XmlConfig.h"
 				>
 			</File>
+			<Filter
+				Name="serialization"
+				>
+				<File
+					RelativePath=".\serialization\RoleInfo.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="资源文件"
