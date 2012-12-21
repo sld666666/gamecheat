@@ -18,9 +18,12 @@ public:
 
 public:
 	static void	removeMsgQueue(const string& msgNameIn, const string& msgNameOut);
+	void		registerFuncitons(const vector<OperateFunction>& functions);
+
+	void		doResponse(RESPMsgQueueType respType);
 
 public:
-	void		sendMsgQueue();
+	void		sendMsgQueue(ReqMsgQueueType type);
 
 private:
 	void		startListerner();
@@ -28,4 +31,5 @@ private:
 private:
 	shared_ptr<MsgSender>	sender_;
 	shared_ptr<MsgListener> listenner_;
+	map<int, OperateFunction>	functons_;
 };

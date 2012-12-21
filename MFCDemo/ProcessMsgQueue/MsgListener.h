@@ -7,6 +7,7 @@
 */
 #pragma once
 #include "interprocessConstant.h"
+#include "MsgDispatch.h"
 
 class	MsgListener
 {
@@ -15,9 +16,12 @@ public:
 	~MsgListener(void);
 
 	void		start();
+	void		registerFuncitons(const vector<OperateFunction>& functions);
 private:
 	void		onLisnten();
-	void		doOperator(MSG_QUEUE_TYPE type);
+	
 private:
 	interprocess::message_queue msgQueue_;
+	MsgDispatch	msgDispatch_;
+	map<int, OperateFunction>	cheatFunctons_;
 };

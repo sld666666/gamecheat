@@ -10,6 +10,7 @@
 #include <boost/interprocess/shared_memory_object.hpp> 
 #include <boost/interprocess/mapped_region.hpp> 
 #include <boost/interprocess/ipc/message_queue.hpp>  
+#include "commonInclude.h"
 #include <string>
 
 using namespace boost;
@@ -18,13 +19,3 @@ using namespace std;
 static const string  INTERPRCESS_MESSAGE_QUEUE_NAME_IN		= "huapi2_message_queue_in";
 static const string	INTERPRCESS_MESSAGE_QUEUE_NAME_OUT		= "huapi2_message_queue_out";
 
-enum MSG_QUEUE_TYPE
-{
-	MQT_START = 0,
-	MQT_PAUSE,
-};
-
-enum TIMER_TYPE
-{
-	TT_MSGCHEACKER = 1
-};

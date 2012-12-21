@@ -213,6 +213,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\MsgDispatch.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MsgListener.cpp"
 				>
 			</File>
@@ -263,11 +267,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\MsgDispatch.h"
+				>
+			</File>
+			<File
 				RelativePath=".\MsgListener.h"
 				>
 			</File>
 			<File
 				RelativePath=".\MsgSender.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MsgType.h"
 				>
 			</File>
 			<File

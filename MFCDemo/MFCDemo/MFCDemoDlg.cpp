@@ -100,7 +100,7 @@ HCURSOR CMFCDemoDlg::OnQueryDragIcon()
 
 void CMFCDemoDlg::OnBnClickedTest()
 {
-	processMsgManager_->sendMsgQueue();
+	processMsgManager_->sendMsgQueue(REQ_MQT_SOURCE_ROLEINFO);
 }
 
 void CMFCDemoDlg::OnBnClickedInhook()

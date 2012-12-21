@@ -20,6 +20,7 @@ public:
 
 	static void debugMsg(const string& info);
 	static void debugMsg(const string& info, int number);
+	static string getCurDataTime();
 };
 
 

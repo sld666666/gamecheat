@@ -15,6 +15,13 @@ class GameManager
 public:
 	GameManager(void);
 	~GameManager(void);
+
+	void		getRoleInfo();
+
+private:
+	void		registerFucntion();
+	
+
 private:
 	shared_ptr<ProcessMsgManager> processMsgManager_;
 

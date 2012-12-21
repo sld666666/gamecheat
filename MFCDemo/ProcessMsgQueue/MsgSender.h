@@ -1,6 +1,7 @@
 
 #pragma once
 #include "interprocessConstant.h"
+#include "MsgType.h"
 
 class	MsgSender
 {
@@ -9,7 +10,7 @@ public:
 	~MsgSender(void);
 
 public:
-	void	sendMessageQueue();
+	void	sendMessageQueue(int type);
 	
 private:
 	interprocess::message_queue msgQueue_;

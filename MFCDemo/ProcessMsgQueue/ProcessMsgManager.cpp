@@ -11,23 +11,30 @@ ProcessMsgManager::ProcessMsgManager(const string& msgNameIn
 	startListerner();
 }
 
-ProcessMsgManager::~ProcessMsgManager(void)
-{
+ProcessMsgManager::~ProcessMsgManager(void){
+}
+
+void ProcessMsgManager::registerFuncitons(const vector<OperateFunction>& functions){
+	if (listenner_)
+		listenner_->registerFuncitons(functions);
 }
 
 void ProcessMsgManager::removeMsgQueue(const string& msgNameIn
-									   , const string& msgNameOut)
-{
+									   , const string& msgNameOut){
 	interprocess::message_queue::remove(msgNameIn.c_str());
 	interprocess::message_queue::remove(msgNameOut.c_str());
 }
 
-void ProcessMsgManager::startListerner()
-{
+void ProcessMsgManager::startListerner(){
 	listenner_->start();
 }
 
-void ProcessMsgManager::sendMsgQueue()
-{
-	sender_->sendMessageQueue();
+void ProcessMsgManager::sendMsgQueue(ReqMsgQueueType type){
+	sender_->sendMessageQueue(type);
 }
+
+void ProcessMsgManager::doResponse(RESPMsgQueueType respType){
+	sender_->sendMessageQueue(respType);
+}
+
+

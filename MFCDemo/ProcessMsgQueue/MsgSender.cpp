@@ -16,10 +16,9 @@ MsgSender::~MsgSender(void)
 
 }
 
-void MsgSender::sendMessageQueue()
+void MsgSender::sendMessageQueue(int type)
 {
-	int i (1);
-	msgQueue_.send(&i, sizeof(i), 0);
+	msgQueue_.send(&type, sizeof(int), 0);
 }
 
 

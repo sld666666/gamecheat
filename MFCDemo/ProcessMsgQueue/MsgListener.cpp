@@ -27,6 +27,10 @@ void MsgListener::start()
 
 }
 
+void MsgListener::registerFuncitons(const vector<OperateFunction>& functions){
+	msgDispatch_.registerFuncitons(functions); 
+}
+
 void MsgListener::onLisnten()
 {
 
@@ -37,7 +41,7 @@ void MsgListener::onLisnten()
 
 			int recvd_number;
 			msgQueue_.receive(&recvd_number, sizeof(recvd_number), recvd_size, prioity);
-			doOperator(static_cast<MSG_QUEUE_TYPE>(recvd_number));
+			msgDispatch_.doOperator(static_cast<ReqMsgQueueType>(recvd_number));
 			Log::debugMsg("MsgListener receive", recvd_number);
 		}
 		catch(interprocess::interprocess_exception &ex)
@@ -48,16 +52,3 @@ void MsgListener::onLisnten()
 	}
 }
 
-
-void MsgListener::doOperator(MSG_QUEUE_TYPE type)
-{
-	switch(type)
-	{
-	case MQT_START:
-		break;
-	case MQT_PAUSE:
-		break;
-	default:
-		break;
-	}
-}
