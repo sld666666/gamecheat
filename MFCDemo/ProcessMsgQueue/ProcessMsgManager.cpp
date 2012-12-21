@@ -1,9 +1,11 @@
 #include "StdAfx.h"
 #include "ProcessMsgManager.h"
+#include "log.h"
 
 ProcessMsgManager::ProcessMsgManager(const string& msgNameIn
 									 , const string& msgNameOut)
 {
+	Log::debugMsg("ProcessMsgManager");
 	sender_ = (shared_ptr<MsgSender>(new MsgSender(msgNameIn)));
 	listenner_ = (shared_ptr<MsgListener>(new MsgListener(msgNameOut)));
 	startListerner();

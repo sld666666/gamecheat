@@ -7,6 +7,7 @@
 #include "MFCDemoDlg.h"
 #include "utils.h"
 #include "GameOperator.h"
+#include "log.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

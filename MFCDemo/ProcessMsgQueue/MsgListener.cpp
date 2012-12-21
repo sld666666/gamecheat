@@ -13,7 +13,7 @@ MsgListener::MsgListener(const string& queueName)
 : msgQueue_(interprocess::open_or_create
 			, queueName.c_str(), 1, sizeof(int))
 {
-	Log::instance().debugMsg("MsgListener");
+	Log::debugMsg("MsgListener");
 }
 
 MsgListener::~MsgListener(void)
@@ -22,13 +22,14 @@ MsgListener::~MsgListener(void)
 
 void MsgListener::start()
 {
-	Log::instance().debugMsg("MsgListener start");
+	Log::debugMsg("MsgListener start");
 	boost::thread lisntenThread(bind(&MsgListener::onLisnten, this));
 
 }
 
 void MsgListener::onLisnten()
 {
+
 	while (1)
 	{
 		try{
@@ -37,7 +38,7 @@ void MsgListener::onLisnten()
 			int recvd_number;
 			msgQueue_.receive(&recvd_number, sizeof(recvd_number), recvd_size, prioity);
 			doOperator(static_cast<MSG_QUEUE_TYPE>(recvd_number));
-			Log::instance().debugMsg("MsgListener receive", recvd_number);
+			Log::debugMsg("MsgListener receive", recvd_number);
 		}
 		catch(interprocess::interprocess_exception &ex)
 		{

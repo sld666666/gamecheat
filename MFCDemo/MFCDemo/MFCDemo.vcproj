@@ -45,7 +45,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\utils\;..\ProcessMsgQueue;..\GameOperator"
+				AdditionalIncludeDirectories="..\utils\;..\ProcessMsgQueue;..\GameOperator;../include/"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -69,6 +69,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="../libs/"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"

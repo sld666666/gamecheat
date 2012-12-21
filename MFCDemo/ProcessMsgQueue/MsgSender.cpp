@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "MsgSender.h"
+#include "log.h"
 
 
 MsgSender::MsgSender(const string& queueName)
 : msgQueue_(interprocess::open_or_create
 			, queueName.c_str(), 1, sizeof(int))
 {
+	Log::debugMsg("MsgSender");
 }
 
 MsgSender::~MsgSender(void)

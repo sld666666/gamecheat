@@ -67,7 +67,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="log4cplusUD.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../libs/"
 				ModuleDefinitionFile=".\ProcessMsgQueue.def"
@@ -180,6 +179,10 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{2F9AF151-9D90-44E7-AC1B-EF7ADA4FB45F}"
+			RelativePathToProject=".\utils\utils.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter

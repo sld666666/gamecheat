@@ -5,6 +5,7 @@
 #include "GameOperator.h"
 #include "GameManager.h"
 #include "XmlConfig.h"
+#include "log.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -57,7 +58,7 @@ LRESULT CALLBACK LauncherHook(int nCode,WPARAM wParam,LPARAM lParam)
 	{
 		AFX_MANAGE_STATE(AfxGetStaticModuleState());
 
-		TRACE("hook");
+		Log::debugMsg("install hook sucess");
 		gGameManager = shared_ptr<GameManager>(new GameManager());
 
 		AfxMessageBox(_T("hook secuss"));
@@ -86,7 +87,6 @@ _declspec(dllexport) void WINAPI installHook()
 
 	gHook=(HHOOK)SetWindowsHookEx(WH_KEYBOARD,(HOOKPROC)LauncherHook,
 		theApp.m_hInstance,processId);
-
 }
 
 _declspec(dllexport) void WINAPI unInstallHook()

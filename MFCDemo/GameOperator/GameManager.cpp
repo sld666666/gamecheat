@@ -3,10 +3,10 @@
 #include "log.h"
 
 GameManager::GameManager(void)
-:processMsgManager_(new ProcessMsgManager(INTERPRCESS_MESSAGE_QUEUE_NAME_IN
-					, INTERPRCESS_MESSAGE_QUEUE_NAME_OUT))
+:processMsgManager_(new ProcessMsgManager(INTERPRCESS_MESSAGE_QUEUE_NAME_OUT
+					, INTERPRCESS_MESSAGE_QUEUE_NAME_IN))
 {
-	Log::instance().debugMsg("gameManager");
+	Log::debugMsg("gameManager");
 }
 
 GameManager::~GameManager(void)

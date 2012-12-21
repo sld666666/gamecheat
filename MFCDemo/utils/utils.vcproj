@@ -67,7 +67,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="log4cplusUD.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../libs/"
 				ModuleDefinitionFile=".\utils.def"
@@ -230,6 +229,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\StringUtils.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\utils.cpp"
 				>
 			</File>
@@ -256,6 +259,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\log.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\log.h"
 				>
 			</File>
@@ -265,6 +272,10 @@
 			</File>
 			<File
 				RelativePath=".\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\StringUtils.h"
 				>
 			</File>
 			<File
