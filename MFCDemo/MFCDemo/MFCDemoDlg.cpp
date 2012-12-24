@@ -8,6 +8,7 @@
 #include "utils.h"
 #include "GameOperator.h"
 #include "log.h"
+#include "serialization/RoleInfo.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -57,6 +58,7 @@ BOOL CMFCDemoDlg::OnInitDialog()
 		, INTERPRCESS_MESSAGE_QUEUE_NAME_OUT);
  	processMsgManager_ = shared_ptr<ProcessMsgManager>(new ProcessMsgManager(INTERPRCESS_MESSAGE_QUEUE_NAME_IN,
 		INTERPRCESS_MESSAGE_QUEUE_NAME_OUT));
+	processMsgManager_->connectMsgType(bind(&CMFCDemoDlg::doMsgType, this, _1));
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -112,4 +114,12 @@ void CMFCDemoDlg::OnBnClickedUnhook()
 {
 	
 	unInstallHook();
+}
+
+void CMFCDemoDlg::doMsgType(int type)
+{
+	RoleInfo roleInfo;
+	std::ifstream ifs(TEMPFILEPATH);
+	archive::text_iarchive ia(ifs);
+	ia >> roleInfo;
 }

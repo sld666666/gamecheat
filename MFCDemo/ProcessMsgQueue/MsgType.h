@@ -16,7 +16,8 @@ using namespace boost;
 typedef function<void()> OperateFunction;
 
 enum ReqMsgQueueType{
-	REQ_MQT_SOURCE_ROLEINFO = 0
+	REQ_MQT_SOURCE_ROLEINFO = 0,
+	REQ_MQT_SOURCE_MAX
 };
 
 enum RESPMsgQueueType{

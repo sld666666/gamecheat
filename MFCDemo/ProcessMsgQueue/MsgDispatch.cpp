@@ -9,8 +9,8 @@ MsgDispatch::~MsgDispatch(void){
 }
 
 void MsgDispatch::doOperator(ReqMsgQueueType type){
-	 OperateFunction fun = functons_[type];
-	 fun();
+	OperateFunction fun = functons_[type];
+	fun();
 }
 
 void MsgDispatch::registerFuncitons(const vector<OperateFunction>& functions){

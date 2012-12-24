@@ -2,6 +2,7 @@
 #include "GameManager.h"
 #include "commonInclude.h"
 #include "log.h"
+#include "serialization/RoleInfo.h"
 
 GameManager::GameManager(void)
 :processMsgManager_(new ProcessMsgManager(INTERPRCESS_MESSAGE_QUEUE_NAME_OUT
@@ -24,7 +25,11 @@ void GameManager::registerFucntion(){
 
 void GameManager::getRoleInfo(){
 	Log::debugMsg("getRoleInfo");
-
+	
+	RoleInfo roleInfo;
+	std::ofstream ofs(TEMPFILEPATH);
+	archive::text_oarchive oa(ofs);
+	oa << roleInfo;
 	processMsgManager_->doResponse(RESP_MQT_SOURCE_ROLEINFO);
 }
 

@@ -37,4 +37,9 @@ void ProcessMsgManager::doResponse(RESPMsgQueueType respType){
 	sender_->sendMessageQueue(respType);
 }
 
+SIGCONECTION ProcessMsgManager::connectMsgType( const MsgTypeSlot& slot )
+{
+	return listenner_->connectMsgType(slot);
+}
+
 

@@ -297,6 +297,10 @@
 					RelativePath=".\serialization\RoleInfo.h"
 					>
 				</File>
+				<File
+					RelativePath=".\serialization\SerializationInclude.h"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter

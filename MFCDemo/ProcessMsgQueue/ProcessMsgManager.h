@@ -21,6 +21,7 @@ public:
 	void		registerFuncitons(const vector<OperateFunction>& functions);
 
 	void		doResponse(RESPMsgQueueType respType);
+	SIGCONECTION connectMsgType(const MsgTypeSlot& slot);
 
 public:
 	void		sendMsgQueue(ReqMsgQueueType type);
@@ -32,4 +33,5 @@ private:
 	shared_ptr<MsgSender>	sender_;
 	shared_ptr<MsgListener> listenner_;
 	map<int, OperateFunction>	functons_;
+	MsgTypeSignal			msgTypeSignal_;
 };

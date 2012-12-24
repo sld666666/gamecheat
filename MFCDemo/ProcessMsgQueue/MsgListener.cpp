@@ -41,8 +41,11 @@ void MsgListener::onLisnten()
 
 			int recvd_number;
 			msgQueue_.receive(&recvd_number, sizeof(recvd_number), recvd_size, prioity);
-			msgDispatch_.doOperator(static_cast<ReqMsgQueueType>(recvd_number));
-			Log::debugMsg("MsgListener receive", recvd_number);
+			if (REQ_MQT_SOURCE_MAX <= recvd_number){
+				msgTypeSignal_(recvd_number);
+			}else{
+				msgDispatch_.doOperator(static_cast<ReqMsgQueueType>(recvd_number));
+			}
 		}
 		catch(interprocess::interprocess_exception &ex)
 		{
@@ -51,4 +54,10 @@ void MsgListener::onLisnten()
 		}
 	}
 }
+
+SIGCONECTION MsgListener::connectMsgType( const MsgTypeSlot& slot )
+{
+	return msgTypeSignal_.connect(slot);
+}
+
 
